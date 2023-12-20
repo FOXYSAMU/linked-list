@@ -1,0 +1,22 @@
+{
+  "name": "linked-list",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FOXYSAMU/linked-list.git"
+  },
+  "author": "Me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FOXYSAMU/linked-list/issues"
+  },
+  "homepage": "https://github.com/FOXYSAMU/linked-list#readme",
+  "description": "",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
