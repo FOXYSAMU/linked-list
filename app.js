@@ -26,6 +26,24 @@ class LinkedList {
       this.head = node;
     }
   }
+
+  get size() {
+    return this.countNodes();
+  }
+
+  countNodes() {
+    let size = 1;
+    let curr = this.head;
+    if (curr === null) {
+      console.log(0);
+    } else {
+      while (curr.nextNode) {
+        curr = curr.nextNode;
+        size++;
+      }
+      console.log(size);
+    }
+  }
 }
 
 class Node {
@@ -46,5 +64,7 @@ list.prepend('howru');
 
 list.append('good');
 list.append('fine');
+
+list.size;
 
 console.log(list);
