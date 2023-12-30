@@ -16,6 +16,16 @@ class LinkedList {
       curr.nextNode = currentNode;
     }
   }
+
+  prepend(value) {
+    let node = new Node(value);
+    if (this.head === null) {
+      this.head = node;
+    } else {
+      node.nextNode = this.head;
+      this.head = node;
+    }
+  }
 }
 
 class Node {
@@ -31,7 +41,10 @@ class Node {
 let list = new LinkedList();
 
 list.append('bye bye');
-list.append('fj');
-list.append('frant');
+list.prepend('hi');
+list.prepend('howru');
+
+list.append('good');
+list.append('fine');
 
 console.log(list);
