@@ -44,6 +44,26 @@ class LinkedList {
       console.log(size);
     }
   }
+
+  get Head() {
+    return this.getHead();
+  }
+
+  getHead() {
+    console.log(this.head);
+  }
+
+  get Tail() {
+    return this.getTail();
+  }
+
+  getTail() {
+    let curr = this.head;
+    while (curr.nextNode) {
+      curr = curr.nextNode;
+    }
+    console.log(curr);
+  }
 }
 
 class Node {
@@ -60,11 +80,14 @@ let list = new LinkedList();
 
 list.append('bye bye');
 list.prepend('hi');
-list.prepend('howru');
+// list.prepend('howru');
 
 list.append('good');
-list.append('fine');
+// list.append('fine');
 
-list.size;
+// list.size;
+
+list.Head;
+list.Tail;
 
 console.log(list);
