@@ -32,16 +32,19 @@ class LinkedList {
   }
 
   countNodes() {
-    let size = 1;
     let curr = this.head;
+    let ListSize = 0;
     if (curr === null) {
-      console.log(0);
+      ListSize = 0;
+      console.log(ListSize);
     } else {
+      ListSize++;
       while (curr.nextNode) {
         curr = curr.nextNode;
-        size++;
+        ListSize++;
       }
-      console.log(size);
+      console.log(ListSize);
+      ListSize = 0;
     }
   }
 
@@ -88,7 +91,43 @@ class LinkedList {
         }
       }
     } else {
-      console.log('No values found');
+      console.log('No nodes found');
+    }
+  }
+
+  get pop() {
+    return this.removeLastNode();
+  }
+
+  removeLastNode() {
+    let curr = this.head;
+    let lastNode = new Node();
+    if (curr !== null) {
+      // Check for 1st and 2nd node
+      if (this.head.nextNode !== null && this.head.nextNode.nextNode !== null) {
+        // Get last node
+        while (curr.nextNode) {
+          curr = curr.nextNode;
+        }
+        lastNode = curr;
+
+        // Remove the last node
+        let current = this.head;
+        while (current.nextNode) {
+          current = current.nextNode;
+          if (current.nextNode === lastNode) {
+            current.nextNode = null;
+          }
+        }
+      } else if (this.head.nextNode === null) {
+        // Leave list empty if only 1 node present
+        this.head = null;
+      } else if (this.head.nextNode.nextNode === null) {
+        // Leave list with only 1 node
+        this.head.nextNode = null;
+      }
+    } else {
+      console.log('No nodes found');
     }
   }
 }
@@ -107,15 +146,18 @@ let list = new LinkedList();
 
 list.append('bye bye');
 list.prepend('hi');
+list.pop;
 list.prepend('howru');
-list.at(3);
+list.size;
 list.append('good');
-list.at(3);
-// list.append('fine');
+list.pop;
+list.append('fine');
 
-// list.size;
+list.size;
 
 // list.Head;
 // list.Tail;
+
+// list.at(3);
 
 console.log(list);
