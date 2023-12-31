@@ -59,10 +59,37 @@ class LinkedList {
 
   getTail() {
     let curr = this.head;
-    while (curr.nextNode) {
-      curr = curr.nextNode;
+    if (curr !== null) {
+      while (curr.nextNode) {
+        curr = curr.nextNode;
+      }
+      console.log(curr);
     }
-    console.log(curr);
+  }
+
+  at(index) {
+    let curr = this.head;
+    let count = 0;
+    let wasFound = false;
+    if (curr !== null) {
+      if (index === 0) {
+        console.log(curr);
+      } else {
+        while (curr.nextNode) {
+          curr = curr.nextNode;
+          count++;
+          if (count === index) {
+            console.log(curr);
+            wasFound = true;
+          }
+        }
+        if (count !== index && !wasFound) {
+          console.log('Node not found');
+        }
+      }
+    } else {
+      console.log('No values found');
+    }
   }
 }
 
@@ -80,14 +107,15 @@ let list = new LinkedList();
 
 list.append('bye bye');
 list.prepend('hi');
-// list.prepend('howru');
-
+list.prepend('howru');
+list.at(3);
 list.append('good');
+list.at(3);
 // list.append('fine');
 
 // list.size;
 
-list.Head;
-list.Tail;
+// list.Head;
+// list.Tail;
 
 console.log(list);
