@@ -130,6 +130,26 @@ class LinkedList {
       console.log('No nodes found');
     }
   }
+
+  contains(value) {
+    let curr = this.head;
+    let isThere = false;
+    if (curr !== null) {
+      if (this.head.value !== value) {
+        while (curr.nextNode) {
+          curr = curr.nextNode;
+          if (curr.value === value) {
+            isThere = true;
+          }
+        }
+      } else {
+        isThere = true;
+      }
+      console.log(isThere);
+    } else {
+      console.log('The list is empty');
+    }
+  }
 }
 
 class Node {
@@ -144,16 +164,18 @@ class Node {
 
 let list = new LinkedList();
 
-list.append('bye bye');
-list.prepend('hi');
-list.pop;
-list.prepend('howru');
-list.size;
-list.append('good');
-list.pop;
-list.append('fine');
+list.append(500);
+list.prepend(300);
+// list.pop;
+list.prepend(20);
+// list.size;
+list.append(25);
+// list.pop;
+list.append(10);
 
-list.size;
+list.contains(300);
+list.contains(200);
+// list.size;
 
 // list.Head;
 // list.Tail;
