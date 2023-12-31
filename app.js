@@ -2,26 +2,23 @@ class LinkedList {
   constructor(head = null) {
     this.head = head;
   }
+
   append(value) {
     let currentNode = new Node(value);
     let curr; // finding actual node in loop
 
-    if (this.head === null) {
-      this.head = currentNode;
-    } else {
+    if (this.head === null) this.head = currentNode;
+    else {
       curr = this.head;
-      while (curr.nextNode) {
-        curr = curr.nextNode;
-      }
+      while (curr.nextNode) curr = curr.nextNode;
       curr.nextNode = currentNode;
     }
   }
 
   prepend(value) {
     let node = new Node(value);
-    if (this.head === null) {
-      this.head = node;
-    } else {
+    if (this.head === null) this.head = node;
+    else {
       node.nextNode = this.head;
       this.head = node;
     }
@@ -39,10 +36,8 @@ class LinkedList {
       console.log(ListSize);
     } else {
       ListSize++;
-      while (curr.nextNode) {
-        curr = curr.nextNode;
-        ListSize++;
-      }
+      while (curr.nextNode) curr = curr.nextNode;
+      ListSize++;
       console.log(ListSize);
       ListSize = 0;
     }
@@ -62,12 +57,8 @@ class LinkedList {
 
   getTail() {
     let curr = this.head;
-    if (curr !== null) {
-      while (curr.nextNode) {
-        curr = curr.nextNode;
-      }
-      console.log(curr);
-    }
+    if (curr !== null) while (curr.nextNode) curr = curr.nextNode;
+    console.log(curr);
   }
 
   at(index) {
@@ -75,9 +66,8 @@ class LinkedList {
     let count = 0;
     let wasFound = false;
     if (curr !== null) {
-      if (index === 0) {
-        console.log(curr);
-      } else {
+      if (index === 0) console.log(curr);
+      else {
         while (curr.nextNode) {
           curr = curr.nextNode;
           count++;
@@ -86,13 +76,9 @@ class LinkedList {
             wasFound = true;
           }
         }
-        if (count !== index && !wasFound) {
-          console.log('Node not found');
-        }
+        if (count !== index && !wasFound) console.log('Node not found');
       }
-    } else {
-      console.log('No nodes found');
-    }
+    } else console.log('No nodes found');
   }
 
   get pop() {
@@ -106,9 +92,8 @@ class LinkedList {
       // Check for 1st and 2nd node
       if (this.head.nextNode !== null && this.head.nextNode.nextNode !== null) {
         // Get last node
-        while (curr.nextNode) {
-          curr = curr.nextNode;
-        }
+        while (curr.nextNode) curr = curr.nextNode;
+
         lastNode = curr;
 
         // Remove the last node
@@ -126,9 +111,7 @@ class LinkedList {
         // Leave list with only 1 node
         this.head.nextNode = null;
       }
-    } else {
-      console.log('No nodes found');
-    }
+    } else console.log('No nodes found');
   }
 
   contains(value) {
@@ -146,9 +129,7 @@ class LinkedList {
         isThere = true;
       }
       console.log(isThere);
-    } else {
-      console.log('The list is empty');
-    }
+    } else console.log('The list is empty');
   }
 }
 
