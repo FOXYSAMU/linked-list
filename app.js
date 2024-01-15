@@ -131,6 +131,26 @@ class LinkedList {
       console.log(isThere);
     } else console.log('The list is empty');
   }
+
+  find(value) {
+    let curr = this.head;
+    let count = 0;
+    let wasFound = false;
+    if (curr !== null) {
+      if (curr.value === value) console.log(0);
+      else {
+        while (curr.nextNode) {
+          curr = curr.nextNode;
+          count++;
+          if (curr.value === value) {
+            console.log(count);
+            wasFound = true;
+          }
+        }
+        if (curr.value !== value && !wasFound) console.log('Node not found');
+      }
+    } else console.log('No nodes found');
+  }
 }
 
 class Node {
@@ -154,8 +174,9 @@ list.append(25);
 // list.pop;
 list.append(10);
 
-list.contains(300);
-list.contains(200);
+// list.contains(300);
+list.find(25);
+// list.contains(200);
 // list.size;
 
 // list.Head;
