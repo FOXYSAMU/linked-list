@@ -151,6 +151,29 @@ class LinkedList {
       }
     } else console.log('No nodes found');
   }
+
+  get toString() {
+    return this.turnToString();
+  }
+
+  turnToString() {
+    let curr = this.head;
+    let stringArr = [];
+    if (curr !== null) {
+      if (curr.nextNode === null) {
+        stringArr.push(`(${curr.value})`);
+      } else {
+        stringArr.push(`(${curr.value})`);
+        while (curr.nextNode) {
+          curr = curr.nextNode;
+          stringArr.push(`(${curr.value})`);
+        }
+      }
+      stringArr.push('null');
+      let result = stringArr.join(' -> ');
+      console.log(result);
+    } else console.log('No nodes found');
+  }
 }
 
 class Node {
@@ -175,9 +198,11 @@ list.append(25);
 list.append(10);
 
 // list.contains(300);
-list.find(25);
+// list.find(25);
 // list.contains(200);
 // list.size;
+
+// list.toString;
 
 // list.Head;
 // list.Tail;
