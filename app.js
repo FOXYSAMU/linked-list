@@ -210,6 +210,48 @@ class LinkedList {
       }
     } else this.head = node;
   }
+
+  removeAt(index) {
+    let curr = this.head;
+    let count = 0;
+    let currentNode;
+    let already = false;
+    if (curr !== null) {
+      if (index === 0) {
+        currentNode = curr.nextNode;
+        curr = null;
+        curr = currentNode;
+        already = true;
+      } else if (index === 1) {
+        let next = curr.nextNode.nextNode;
+        curr.nextNode = null;
+        curr.nextNode = next;
+        already = true;
+      } else {
+        while (curr.nextNode) {
+          curr = curr.nextNode;
+          count++;
+          if (count === index) {
+            console.log(curr);
+            let next = curr.nextNode;
+            let main = this.head;
+            while (main.nextNode) {
+              main = main.nextNode;
+              if (main.nextNode === curr) {
+                main.nextNode = null;
+                main.nextNode = next;
+                break;
+              }
+            }
+            already = true;
+          }
+        }
+      }
+      if (count !== index && !already) {
+        console.log('Node not found');
+      }
+    } else console.log('No nodes found');
+  }
 }
 
 class Node {
@@ -244,11 +286,15 @@ list.append(12);
 
 // list.toString;
 
-list.insertAt('hey', 1);
-list.insertAt('ciao', 3);
-list.insertAt('hola', 3);
-list.insertAt('seeya', 10);
-list.insertAt('test', 11);
+// list.insertAt('hey', 1);
+// list.insertAt('ciao', 3);
+// list.insertAt('hola', 3);
+// list.insertAt('seeya', 10);
+// list.insertAt('test', 11);
+
+list.removeAt(5);
+list.removeAt(6);
+list.removeAt(1);
 
 // list.find(13);
 // list.find(13);
