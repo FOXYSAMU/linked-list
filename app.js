@@ -232,7 +232,6 @@ class LinkedList {
           curr = curr.nextNode;
           count++;
           if (count === index) {
-            console.log(curr);
             let next = curr.nextNode;
             let main = this.head;
             while (main.nextNode) {
