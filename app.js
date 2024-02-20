@@ -174,6 +174,42 @@ class LinkedList {
       console.log(result);
     } else console.log('No nodes found');
   }
+
+  insertAt(value, index) {
+    let node = new Node(value);
+    let curr = this.head;
+    let count = 0;
+    let wasFound = false;
+    if (curr !== null) {
+      if (index === 0) {
+        node.nextNode = this.head;
+        this.head = node;
+      } else if (index === 1) {
+        node.nextNode = curr.nextNode;
+        curr.nextNode = node;
+      } else {
+        while (curr.nextNode) {
+          curr = curr.nextNode;
+          count++;
+          if (count === index) {
+            let main = this.head;
+            while (main.nextNode) {
+              main = main.nextNode;
+              if (main.nextNode === curr) {
+                main.nextNode = node;
+                node.nextNode = curr;
+                break;
+              }
+            }
+            wasFound = true;
+          }
+        }
+        if (count !== index && !wasFound) {
+          console.log('Cant insert node');
+        }
+      }
+    } else this.head = node;
+  }
 }
 
 class Node {
@@ -194,16 +230,28 @@ list.prepend(300);
 list.prepend(20);
 // list.size;
 list.append(25);
-// list.pop;
-list.append(10);
 
+list.append(10);
+list.append(11);
+list.append(13);
+list.append(12);
+
+// list.pop;
 // list.contains(300);
-// list.find(25);
+
 // list.contains(200);
 // list.size;
 
 // list.toString;
 
+list.insertAt('hey', 1);
+list.insertAt('ciao', 3);
+list.insertAt('hola', 3);
+list.insertAt('seeya', 10);
+list.insertAt('test', 11);
+
+// list.find(13);
+// list.find(13);
 // list.Head;
 // list.Tail;
 
