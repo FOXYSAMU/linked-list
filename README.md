@@ -1,6 +1,6 @@
 # Linked list
 
-<p> Built as a project from the curriculum [The Odin Project](https://www.theodinproject.com/) JS Path, as well an introduction to the CS world</p>
+ Built as a project from the curriculum [The Odin Project](https://www.theodinproject.com/) JS Path, as well an introduction to the CS world
 
 ## How to use
 
